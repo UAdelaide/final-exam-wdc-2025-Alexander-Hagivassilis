@@ -89,6 +89,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
                     dog_name: response[i].name,
                     requested_time: response[i].requested_time,
                     duration_minutes: response[i].duration_minutes,
+                    location: response[i].location,
                     
                 }
             }
