@@ -60,7 +60,7 @@ let db;
 
 app.get('/api/dogs', async (req, res) => {
     try {
-        const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
+        const dogs = await db.execute('SELECT Dogs.name, Dogs.size, Users.Username FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
         dogs.then((response) => {
             let payload = {};
             for (let i = 0; i < response.length; i++) {
@@ -90,7 +90,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
                     requested_time: response[i].requested_time,
                     duration_minutes: response[i].duration_minutes,
                     location: response[i].location,
-                    
+
                 }
             }
         });
