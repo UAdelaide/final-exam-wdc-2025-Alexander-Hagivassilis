@@ -36,7 +36,9 @@
           const data = await info.json();
           const images = await fetch('https://dog.ceo/api/breeds/image/random' + data.count);
           const img_result = await images.json();
-          data[i].image = img_result[i].message;
+          for (let i = 0; i < data.count; i++) {
+            data[i].image = img_result[i].message;
+          }
         }
       },
       created: function() {
