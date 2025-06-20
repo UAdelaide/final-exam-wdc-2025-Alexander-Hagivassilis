@@ -13,7 +13,7 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <div class="gallery" v-if="dogImages.length">
-      <span v-for="">
+      <span v-for="n in dogInfo.count">
 
       </span>
       <img v-for="(url, index) in dogImages" :src="url" :alt="'Dog' + index" :key="url">
