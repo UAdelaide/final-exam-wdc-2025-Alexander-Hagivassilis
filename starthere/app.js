@@ -147,6 +147,7 @@ app.get('/api/dogs', async (req, res) => {
         const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
           let payload = {};
           for (let i = 0; i < dogs.length; i++) {
+            console.log(dogs[i]);
               let current_dog = {
                   dog_name: dogs[i].name,
                   size: dogs[i].size,
