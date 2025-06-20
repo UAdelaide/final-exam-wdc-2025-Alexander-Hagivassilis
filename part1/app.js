@@ -138,7 +138,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                         payload.push(new_walker);
                     }
                 }
-
+                
             }
         });
     } catch (err) {
