@@ -80,6 +80,7 @@
         async attemptLogin(params) {
           var xhttp = new XMLHttpRequest();
           xhttp.onload = function () {
+            console.log(xhttp.status);
             if (this.readyState && this.status < 400) {
               app.auth = true;
               console.log(xhttp.status);
