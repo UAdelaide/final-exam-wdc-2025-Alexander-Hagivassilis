@@ -7,7 +7,6 @@ const session = require('express-session');
 require('dotenv').config();
 
 // Cookies and sessions
-
 const app = express();
 
 // Middleware
