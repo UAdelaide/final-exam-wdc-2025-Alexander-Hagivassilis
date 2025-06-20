@@ -38,12 +38,12 @@
           const info = await fetch('/api/users/dogs');
           const data = await info.json();
           this.dogInfo = data;
+          console.log(this.dogInfo)
           this.fetchImages();
         },
         async fetchImages() {
           const images = await fetch('https://dog.ceo/api/breeds/image/random/' + this.dogInfo.count);
           const result = await images.json();
-          console.log(result);
           this.dogImages = result.message;
         }
       },
