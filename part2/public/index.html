@@ -83,7 +83,7 @@
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
             console.log(params);
-            console.log(xhttp.response);
+            console.log(xhttp.response.status);
             if (this.readyState && this.status < 400) {
               app.auth = true;
               // Redirect
