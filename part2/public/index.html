@@ -26,7 +26,8 @@
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
-          dogInfo: []
+          dogInfo: [],
+          dogImages: []
         };
       },
       methods: {
@@ -34,9 +35,11 @@
           const info = await fetch('/api/dogs');
           const data = await info.json();
           this.dogInfo = data;
+                    this.fetchImage();
+
         },
         async fetchImage() {
-          const
+          const img
         }
       }
     }).mount('#app');
