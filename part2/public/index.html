@@ -80,23 +80,24 @@
           app.loginpass = '';
         },
         async attemptLogin(params) {
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
-            console.log(params);
-            console.log(xhttp.status);
-            if (this.readyState && this.status < 400) {
-              app.auth = true;
-              // Redirect
-            } else if (this.readyState == 4 && this.status == 401) {
-              app.auth = false;
-            }
-          }
-          // Login
-          xhttp.open("POST", "/api/users/login", true);
+          fetch
+          // var xhttp = new XMLHttpRequest();
+          // xhttp.onreadystatechange = function () {
+          //   console.log(params);
+          //   console.log(xhttp.status);
+          //   if (this.readyState && this.status < 400) {
+          //     app.auth = true;
+          //     // Redirect
+          //   } else if (this.readyState == 4 && this.status == 401) {
+          //     app.auth = false;
+          //   }
+          // }
+          // // Login
+          // xhttp.open("POST", "/api/users/login", true);
 
-          xhttp.setRequestHeader("Content-type", "application/json");
+          // xhttp.setRequestHeader("Content-type", "application/json");
 
-          xhttp.send(JSON.stringify(params));
+          // xhttp.send(JSON.stringify(params));
         }
       },
       created: function() {
