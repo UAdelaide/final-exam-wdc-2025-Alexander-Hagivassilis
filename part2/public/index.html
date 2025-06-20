@@ -12,6 +12,9 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
+
+    <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
+    <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a>
     <h2>All Registered Dogs</h2>
     <table v-if="dogImages.length" style="table-layout: fixed;">
       <thead>
@@ -31,9 +34,6 @@
         <th><img :src="dogImages[n-1]" :alt="'Dog' + n" style="height: 80px;"></th>
         </tr>
     </table>
-
-    <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
-    <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a>
   </div>
 
   <script>
