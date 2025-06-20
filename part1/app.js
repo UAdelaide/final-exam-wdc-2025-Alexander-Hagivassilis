@@ -110,7 +110,8 @@ app.get('/api/walkers/summary', async (req, res) => {
                 let current_walker_name = response.username[i];
                 for (let j = 0; j < payload.length; j++) {
                     if (payload[j].username === current_walker_name) {
-                        payload[j].
+                        payload[j].completed_walks++;
+                        payload[]
                     }
                 }
             }
