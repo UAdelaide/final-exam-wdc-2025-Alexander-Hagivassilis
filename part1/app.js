@@ -64,9 +64,8 @@ let db;
 
 app.get('/api/dogs', async (req, res) => {
     try {
-        db.execute('SELECT * FROM Dogs') {
-            
-        };
+        const dogs = db.execute('SELECT * FROM Dogs');
+        dogs.length
         let payload = {};
         for (let i = 0; i < )
     }
