@@ -8,11 +8,7 @@
         <div id="information">
             {{ What is this page? }}
         </div>
-        <div id="app">
-        <button @click="count++">
-            Count is: {{ count }}
-        </button>
-        </div>
+        <button type="button" onclick="appdiv.text = 'Hi';">Change</button>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js">
     import { createApp, ref } from 'vue'
     createApp({
