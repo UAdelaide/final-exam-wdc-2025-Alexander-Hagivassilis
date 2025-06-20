@@ -86,6 +86,8 @@ app.get('/api/walkrequests/open', async (req, res) => {
             for (let i = 0; i < response.length; i++) {
                 let current_walk = {
                     request_id: response[i].request_id,
+                    dog_name: response[i].name,
+                    
                 }
             }
         });
