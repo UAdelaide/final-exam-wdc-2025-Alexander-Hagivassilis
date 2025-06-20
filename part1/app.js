@@ -88,7 +88,6 @@ app.get('/api/dogs', async (req, res) => {
         }
         res.json(payload);
     } catch (err) {
-      console.log(err);
         res.status(500).json({ error: 'Failed to fetch dogs' });
     }
 });
@@ -111,7 +110,6 @@ app.get('/api/walkrequests/open', async (req, res) => {
         }
         res.json(payload);
     } catch (err) {
-      console.log(err);
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
     }
 });
@@ -156,7 +154,6 @@ app.get('/api/walkers/summary', async (req, res) => {
         }
         res.json(payload);
     } catch (err) {
-      console.log(err);
         res.status(500).json({ error: 'Failed to fetch walker summary' });
     }
 });
