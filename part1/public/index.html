@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
-    <body style="background-color: aqua;">
+    <body style="background-color: aqua;" onload="fetchDIOD">
         <div id="msg" style="color:blue; text-decoration: underline;">
             {{ message }}
         </div>
@@ -18,7 +18,7 @@
         createApp({
             data() {
                 return {
-                    message: "dog of today"
+                    message: "Dog of today"
                 };
             }
         }).mount('#msg')
