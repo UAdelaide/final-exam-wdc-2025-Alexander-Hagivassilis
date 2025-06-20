@@ -82,10 +82,9 @@
         async attemptLogin(params) {
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
-            console.log(params);
-            console.log(xhttp.status);
             if (this.readyState == 4 && this.status < 400) {
               app.auth = true;
+              console.log("Loggedin");
               // Redirect
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
