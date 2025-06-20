@@ -12,13 +12,13 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
-    <div class="gallery" v-if="dogImages.length">
+    <table class="gallery" v-if="dogImages.length">
       <span v-for="n in dogInfo.count">
         <b> {{dogInfo[n-1].dog_name}} </b>
         <i> {{dogInfo</i>
         <img :src="dogImages[n-1]" :alt="'Dog' + n">
       </span>
-    </div>
+    </table>
 
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a>
