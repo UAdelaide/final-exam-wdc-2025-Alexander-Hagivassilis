@@ -67,7 +67,10 @@ app.get('/api/dogs', async (req, res) => {
         const dogs =  await db.execute('SELECT * FROM Dogs');
         dogs.then((result) => {
             let payload = {};
-            for (let i = 0; i < )
+            for (let i = 0; i < result.length; i++)
+            {
+                payload
+            }
         })
     }
 });
