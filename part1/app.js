@@ -23,7 +23,8 @@ let db;
     });
 
     // Create the database if it doesn't exist
-    await connection.query('SOURCE dogwalks.sql');
+    await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
+    await connection.end();
 
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
