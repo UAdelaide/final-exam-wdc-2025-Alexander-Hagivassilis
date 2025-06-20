@@ -38,7 +38,9 @@
           this.fetchImages();
         },
         async fetchImage() {
-          const images = await fetch('https://dog.ceo/api/breeds/image/random' + dogInfo.length)
+          const images = await fetch('https://dog.ceo/api/breeds/image/random' + dogInfo.length);
+          const result = await images.json();
+          this.dogImages = result.message;
         }
       }
     }).mount('#app');
