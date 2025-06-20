@@ -70,8 +70,9 @@ app.get('/api/dogs', async (req, res) => {
             for (let i = 0; i < response.length(); i++) {
                 let current_dog = {
                     dog_name: response[i].name,
-                    size: response[i].size;
+                    size: response[i].size
                 };
+                
 
             }
         });
