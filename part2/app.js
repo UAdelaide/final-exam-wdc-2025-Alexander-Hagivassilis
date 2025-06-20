@@ -27,7 +27,6 @@ app.use(session({
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
-const cookieParser = require('cookie-parser');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
