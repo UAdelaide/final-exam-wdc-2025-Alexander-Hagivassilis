@@ -66,7 +66,10 @@ app.get('/api/dogs', async (req, res) => {
     try {
         const dogs = await db.execute('SELECT name, size, owner_id FROM Dogs');
         dogs.then((response) => {
-            for ()
+            let payload = {};
+            for (let i = 0; i < response.length(); i++) {
+                
+            }
         });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
