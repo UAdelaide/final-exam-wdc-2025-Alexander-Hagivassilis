@@ -58,15 +58,15 @@ router.post('/login', async (req, res) => {
 // Get dogs & details
 router.get('/dogs', async (req, res) => {
     try {
-        const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
+        const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id, Dogs.dog_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
         let response = dogs[0];
         let payload = {};
         for (let i = 0; i < response.length; i++) {
             let current_dog = {
                 dog_name: response[i].name,
                 size: response[i].size,
-                owner_id: response[i].owner_id
-                dog_id
+                owner_id: response[i].owner_id,
+                dog_id: response[i].dog_id
             };
             payload[i] = (current_dog);
         }
