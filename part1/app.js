@@ -64,6 +64,8 @@ let db;
 
 app.get('/api/dogs', async (requestAnimationFrame, res => {
     try {
-        const [dogs] = await db.execute('SELECT * FROM Dogs')
+        const [dogs] = await db.execute('SELECT * FROM Dogs');
+        let payload = {};
+        for ()
     }
 }));
