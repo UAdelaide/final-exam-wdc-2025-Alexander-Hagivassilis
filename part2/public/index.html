@@ -69,7 +69,7 @@
           const result = await images.json();
           this.dogImages = result.message;
         },
-        async attemptLogin() {
+        async attemptLogin(params) {
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
             if (this.readyState && this.status < 400) {
