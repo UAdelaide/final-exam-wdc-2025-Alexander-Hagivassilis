@@ -33,6 +33,10 @@
         async fetchDogs() {
           const info = await fetch('/api/dogs');
           const data = await info.json();
+          this.dogInfo = data;
+        },
+        async fetchImage() {
+          const
         }
       }
     }).mount('#app');
