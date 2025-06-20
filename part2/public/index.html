@@ -73,6 +73,10 @@
           const result = await images.json();
           this.dogImages = result.message;
         },
+        async loginForm() {
+          this.attemptLogin({username:app.loginuser, password:app.loginpass});
+          app.loginpass = '';
+        },
         async attemptLogin(params) {
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
@@ -90,11 +94,7 @@
           xhttp.setRequestHeader("Content-type", "application/json");
 
           xhttp.send(JSON.stringify(params));
-        },
-        async loginForm() {
-          attemptLogin({username:app.loginuser, password:app.loginpass});
-          app.loginpass = '';
-        },
+        }
       },
       created: function() {
         this.fetchDogs()
