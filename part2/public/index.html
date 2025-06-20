@@ -39,8 +39,8 @@
           this.fetchImages();
         },
         async fetchImages() {
-          const dog_count = await this.dogInfo;
-          const images = await fetch('https://dog.ceo/api/breeds/image/random/' + dog_count.length);
+          console.log(this.dogInfo.length)
+          const images = await fetch('https://dog.ceo/api/breeds/image/random/' + this.dogInfo.length);
           const result = await images.json();
           console.log(result);
           this.dogImages = result.message;
