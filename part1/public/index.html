@@ -23,21 +23,21 @@
             }
         }).mount('#msg')
 
-        createApp({
-            data() {
-                return {
-                    diod: null
-                };
-            },
-            methods: {
-                async fetchDIOD() {
-                    console.log("Fetching");
-                    const response = await fetch ('https://dog.ceo/api/breeds/image/random');
-                    this.diod = await response.json();
-                    console.log("Fetched");
-                }
-            }
-        }).mount('#app')
+        // createApp({
+        //     data() {
+        //         return {
+        //             diod: null
+        //         };
+        //     },
+        //     methods: {
+        //         async fetchDIOD() {
+        //             console.log("Fetching");
+        //             const response = await fetch ('https://dog.ceo/api/breeds/image/random');
+        //             this.diod = await response.json();
+        //             console.log("Fetched");
+        //         }
+        //     }
+        // }).mount('#app')
         </script>
 </body>
 </html>
