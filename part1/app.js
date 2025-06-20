@@ -63,7 +63,7 @@ app.get('/api/dogs', async (req, res) => {
         const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
         dogs.then((response) => {
             let payload = {};
-            for (let i = 0; i < response.length(); i++) {
+            for (let i = 0; i < response.length; i++) {
                 let current_dog = {
                     dog_name: response[i].name,
                     size: response[i].size,
@@ -83,8 +83,8 @@ app.get('/api/walkrequests/open', async (req, res) => {
         const open_requests = await db.execute('SELECT Users.username, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.request_id, WalkRequests.location FROM WalkRequests LEFT JOIN Dogs ON WalkRequests.dog_id=Dogs.dog_id LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
         open_requests.then((response) => {
             let payload = {};
-            for (let i = 0; i < response.length(); i++) {
-                
+            for (let i = 0; i < response.length; i++) {
+
             }
         });
     } catch (err) {
