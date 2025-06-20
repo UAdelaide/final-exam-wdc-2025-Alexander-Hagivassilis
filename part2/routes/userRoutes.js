@@ -55,6 +55,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get 
+// Get dogs & details
+router.get('/api/dogs', async (req, res) => {
+    try {
+        const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
+        let response = dogs[0];
+        let payload = {};
+        for (let i = 0; i < response.length; i++) {
+            let current_dog = {
+                dog_name: response[i].name,
+                size: response[i].size,
+                owner_username: response[i].username
+            };
+            payload[i] = (current_dog);
+        }
+        res.json(payload);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+});
 
 module.exports = router;
