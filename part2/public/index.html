@@ -13,7 +13,8 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <div class="gallery" v-if="dogImages.length">
-      <img v-for="(url, index) in dogImages" :src="url" :alt=""
+      <img v-for="(url, index) in dogImages" :src="url" :alt="'Dog' + index" :key="url">
+      
     </div>
 
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
