@@ -51,7 +51,6 @@
           const info = await fetch('/api/users/dogs');
           const data = await info.json();
           this.dogInfo = data;
-          console.log(this.dogInfo);
           this.fetchImages();
         },
         async fetchImages() {
