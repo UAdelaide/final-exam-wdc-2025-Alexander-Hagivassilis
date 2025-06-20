@@ -86,7 +86,7 @@
             if (this.readyState && this.status < 400) {
               app.auth = true;
               console.log(xhttp.status);
-              console.log(this.json);
+              console.log(xhttp.json.message);
               // Redirect
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
