@@ -35,10 +35,11 @@
         async fetchDogs() {
           const info = await fetch('/api/dogs');
           const data = await info.json();
+          console.log()
           this.dogInfo = info;
           this.fetchImages();
         },
-        async fetchImage() {
+        async fetchImages() {
           const images = await fetch('https://dog.ceo/api/breeds/image/random' + dogInfo.length);
           const result = await images.json();
           this.dogImages = result.message;
