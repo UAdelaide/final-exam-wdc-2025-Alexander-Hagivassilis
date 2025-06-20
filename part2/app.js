@@ -14,8 +14,8 @@ app.use(session ({
     secret: 'sup3rs3cr3tstr1ng',
     resave: false,
     saveUninitialized: false,
-    cookie: 
-}))
+    cookie: { secure: false }
+}));
 
 app.use(express.static(path.join(__dirname, '/public')));
 
