@@ -31,7 +31,7 @@
       },
       methods: {
         async fetchDogs() {
-          const info = 
+          const info = await fetch('/api/dogs')
         }
       }
     }).mount('#app');
