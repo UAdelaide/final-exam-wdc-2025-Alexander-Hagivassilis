@@ -6,7 +6,7 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
     <body style="background-color: aqua;" id="app">
-        <div id="msg" style="color:blue; text-decoration: underline;">
+        <div style="color:blue; text-decoration: underline;">
             {{ message }}
         </div>
         <div v-if="diod" id="dog">
@@ -29,7 +29,7 @@
                     console.log("Fetched");
                 }
             }
-        }).mount('#dog')
+        }).mount('#app')
         </script>
 </body>
 </html>
