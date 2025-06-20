@@ -6,15 +6,14 @@
     </head>
     <body>
         <div id="app">
-            {{ What is this page? }}
+            {{ ? }}
         </div>
-        <button type="button" onclick="appdiv.text = 'Hi';">Change</button>
+        <button type="button" onclick="appdiv.text = 'Hi';">?</button>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js">
-    import { createApp, ref } from 'vue'
     var appdiv = new Vue({
     el: "#app",
     data: {
-        text: "Hello"
+        text: "This shows a random dog!"
     }
     });
 </script>
