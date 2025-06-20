@@ -120,9 +120,11 @@ app.get('/api/walkers/summary', async (req, res) => {
                     }
                 }
                 if (!found) {
-                    if (!response[i].rating)
-                    {
-                        
+                    if (!response[i].rating) {
+                        let new_walker = {
+                            walker_username: current_walker_name,
+                            
+                        }
                     }
                 }
 
