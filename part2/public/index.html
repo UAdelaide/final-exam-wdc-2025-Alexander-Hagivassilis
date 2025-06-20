@@ -82,7 +82,10 @@
         async attemptLogin(params) {
           var login = await fetch("/api/users/login", {
             method: "POST",
-            
+            headers: {
+              
+            }
+            body: JSON.stringify(params),
           })
           // var xhttp = new XMLHttpRequest();
           // xhttp.onreadystatechange = function () {
