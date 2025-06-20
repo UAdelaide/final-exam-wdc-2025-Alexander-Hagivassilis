@@ -8,7 +8,8 @@ var session = require('express-session');
 const app = express();
 
 app.use(express.json());
-app.use(express)
+app.use(express.urlencoded({ extended: false }));
+app.use(cookie)
 
 // Middleware
 app.use(express.json());
