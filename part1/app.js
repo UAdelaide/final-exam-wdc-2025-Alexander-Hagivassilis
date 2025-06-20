@@ -105,6 +105,7 @@ app.get('/api/walkers/summary', async (req, res) => {
     try {
         const walkers = await db.execute("SELECT Users.username, WalkRatings.rating FROM Users LEFT JOIN WalkRatings ON WalkRatings.walker_id=user_id WHERE role='walker'");
         walkers.then((response) = {
+            let payload = {};
             
         });
     } catch (err) {
