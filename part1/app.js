@@ -87,6 +87,8 @@ app.get('/api/walkrequests/open', async (req, res) => {
                 let current_walk = {
                     request_id: response[i].request_id,
                     dog_name: response[i].name,
+                    requested_time: response[i].requested_time,
+                    duration_minutes: response[i].duration_minutes,
                     
                 }
             }
