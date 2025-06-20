@@ -91,10 +91,13 @@ app.get('/api/walkrequests/open', async (req, res) => {
                     duration_minutes: response[i].duration_minutes,
                     location: response[i].location,
                     owner_username: response[i].username
-                }
+                };
+                payload.push(current_walk);
             }
+            res.json(payload);
         });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
     }
 });
+
