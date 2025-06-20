@@ -109,9 +109,8 @@ app.get('/api/walkers/summary', async (req, res) => {
             for (let i = 0; i < response.length; i++) {
                 let current_walker_name = response.username[i];
                 for (let j = 0; j < payload.length; j++) {
-                    if (payload[j].username = current_walker_name)
-                    {
-                        
+                    if (payload[j].username === current_walker_name) {
+                        payload[j].
                     }
                 }
             }
