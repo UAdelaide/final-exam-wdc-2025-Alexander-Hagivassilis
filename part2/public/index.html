@@ -80,30 +80,30 @@
           app.loginpass = '';
         },
         async attemptLogin(params) {
-          var login = await fetch("/api/users/login", {
-            method: "POST",
-            headers: {
-              Content-Type
-            }
-            body: JSON.stringify(params),
-          })
-          // var xhttp = new XMLHttpRequest();
-          // xhttp.onreadystatechange = function () {
-          //   console.log(params);
-          //   console.log(xhttp.status);
-          //   if (this.readyState && this.status < 400) {
-          //     app.auth = true;
-          //     // Redirect
-          //   } else if (this.readyState == 4 && this.status == 401) {
-          //     app.auth = false;
+          // var login = await fetch("/api/users/login", {
+          //   method: "POST",
+          //   headers: {
+          //     Content-Type
           //   }
-          // }
-          // // Login
-          // xhttp.open("POST", "/api/users/login", true);
+          //   body: JSON.stringify(params),
+          // })
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            console.log(params);
+            console.log(xhttp.status);
+            if (this.readyState && this.status < 400) {
+              app.auth = true;
+              // Redirect
+            } else if (this.readyState == 4 && this.status == 401) {
+              app.auth = false;
+            }
+          }
+          // Login
+          xhttp.open("POST", "/api/users/login", true);
 
-          // xhttp.setRequestHeader("Content-type", "application/json");
+          xhttp.setRequestHeader("Content-Type", "application/json");
 
-          // xhttp.send(JSON.stringify(params));
+          xhttp.send(JSON.stringify(params));
         }
       },
       created: function() {
