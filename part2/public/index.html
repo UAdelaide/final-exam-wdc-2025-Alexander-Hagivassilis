@@ -74,11 +74,12 @@
           this.dogImages = result.message;
         },
         async loginForm() {
-          document.getElementById("name").value;
           this.attemptLogin({username:app.loginuser, password:app.loginpass});
           app.loginpass = '';
         },
         async attemptLogin(params) {
+                    console.log(document.getElementById("name").value);
+
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
             console.log(params);
