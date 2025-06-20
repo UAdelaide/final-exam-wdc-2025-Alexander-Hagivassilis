@@ -109,14 +109,17 @@ app.get('/api/walkers/summary', async (req, res) => {
             for (let i = 0; i < response.length; i++) {
                 let current_walker_name = response[i].username;
                 for (let j = 0; j < payload.length; j++) {
-                    if (payload[j].username === current_walker_name) {
+                    if (payload[j].walker_username === current_walker_name) {
                         payload[j].average_rating = (payload[j].average_rating
                             * payload[j].total_ratings + response[i].rating)
                             / (payload[j].total_ratings + 1);
                         payload[j].completed_walks++;
                         payload[j].total_ratings++;
                     } else {
-                        let new_walker = 
+                        let new_walker = {
+                            walker_username: current_walker_name,
+                            
+                        }
                     }
                 }
             }
