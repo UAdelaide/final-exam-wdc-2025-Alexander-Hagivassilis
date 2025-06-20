@@ -62,10 +62,10 @@ let db;
   }
 })();
 
-app.get('/api/dogs', async (req, res => {
+app.get('/api/dogs', async (req, res) => {
     try {
         const [dogs] = await db.execute('SELECT * FROM Dogs');
         let payload = {};
         for (let i = 0; i < )
     }
-}));
+});
