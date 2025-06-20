@@ -112,7 +112,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                     if (payload[j].username === current_walker_name) {
                         payload[j].average_rating = (payload[j].average_rating
                             * payload[j].total_ratings + response[i].rating)
-                            /
+                            / (payload[j].total_ratings + 1);
                         payload[j].completed_walks++;
                         payload[j].total_ratings++;
                     }
