@@ -14,7 +14,7 @@
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <div class="gallery" v-if="dogImages.length">
       <span v-for="n in dogInfo.count">
-        <h3> {{dogInfo[n-1].}} </h3>
+        <p> {{dogInfo[n-1].name}} </h3>
         <img :src="dogImages[n-1]" :alt="'Dog' + n">
       </span>
     </div>
