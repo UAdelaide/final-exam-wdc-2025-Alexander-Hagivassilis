@@ -74,6 +74,8 @@
           this.dogImages = result.message;
         },
         async loginForm() {
+          console.log(app.loginuser);
+          console.log(app.loginpass);
           this.attemptLogin({username:app.loginuser, password:app.loginpass});
           app.loginpass = '';
         },
