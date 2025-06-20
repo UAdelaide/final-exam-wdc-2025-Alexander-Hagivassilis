@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tr v-for="n in dogInfo.count">
-        <th> {{dogInfo[n-1].dog_id}} </th>
+        <th scope="row"> {{dogInfo[n-1].dog_id}} </th>
         <th> {{dogInfo[n-1].dog_name}} </th>
         <th> {{dogInfo[n-1].size}} </th>
         <th> {{dogInfo[n-1].owner_id}} </th>
