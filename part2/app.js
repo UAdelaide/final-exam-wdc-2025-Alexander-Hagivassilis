@@ -9,7 +9,6 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookie)
 
 // Middleware
 app.use(express.json());
@@ -18,6 +17,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
+const cookieParser = require('cookie-parser');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
