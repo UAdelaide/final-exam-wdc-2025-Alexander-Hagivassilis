@@ -74,7 +74,8 @@
           this.dogImages = result.message;
         },
         async loginForm() {
-          authServer({})
+          attemptLogin({username:app.loginuser, password:app.loginpass});
+          
         },
         async attemptLogin(params) {
           var xhttp = new XMLHttpRequest();
