@@ -64,7 +64,8 @@ let db;
 
 app.get('/api/dogs', async (req, res) => {
     try {
-        const [dogs] =  await db.execute('SELECT name, size, owner_id FROM Dogs');
-        res.json(dogs)
+        const dogs = await db.execute('SELECT name, size, owner_id FROM Dogs');
+        dogs.then()
+        res.json()
     }
 });
