@@ -211,7 +211,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                         average_rating: null,
                         completed_walks: 0
                     };
-                    payload.push(new_walker);
+                    payload[i] = new_walker;
                 } else {
                     let new_walker = {
                         walker_username: current_walker_name,
