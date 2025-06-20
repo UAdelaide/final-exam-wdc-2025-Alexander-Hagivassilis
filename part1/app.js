@@ -60,8 +60,19 @@ let db;
 
 app.get('/api/dogs', async (req, res) => {
     try {
-        const [dogs] = await db.execute('SELECT Dogs.name, Dogs.size, Users.Username FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
-        res.json(dogs);
+        const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
+        dogs.then((response) => {
+            let payload = {};
+            for (let i = 0; i < response.length; i++) {
+                let current_dog = {
+                    dog_name: response[i].name,
+                    size: response[i].size,
+                    owner_username: response[i].username
+                };
+                payload.push(current_dog);
+            }
+            res.json(payload);
+        });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
     }
@@ -69,8 +80,20 @@ app.get('/api/dogs', async (req, res) => {
 
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
-        const [open_requests] = await db.execute("SELECT WalkRequests.request_id, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.location, Users.username FROM WalkRequests LEFT JOIN Dogs ON WalkRequests.dog_id=Dogs.dog_id LEFT JOIN Users ON Dogs.owner_id=Users.user_id WHERE status='open'");
-        res.json(open_requests);
+        const open_requests = await db.execute("SELECT Users.username, Dogs.name, WalkRequests.requested_time, WalkRequests.duration_minutes, WalkRequests.request_id, WalkRequests.location FROM WalkRequests LEFT JOIN Dogs ON WalkRequests.dog_id=Dogs.dog_id LEFT JOIN Users ON Dogs.owner_id=Users.user_id WHERE status='open'");
+        open_requests.then((response) => {
+            let payload = {};
+            for (let i = 0; i < response.length; i++) {
+                let current_walk = {
+                    request_id: response[i].request_id,
+                    dog_name: response[i].name,
+                    requested_time: response[i].requested_time,
+                    duration_minutes: response[i].duration_minutes,
+                    location: response[i].location,
+                    
+                }
+            }
+        });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
     }
