@@ -1,4 +1,4 @@
-const createApp, ref require() '../../node_modules/vue';
+const {createApp, ref} = require('../../node_modules/vue');
 
 
 createApp({
