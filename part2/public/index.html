@@ -75,6 +75,8 @@
             if (this.readyState && this.status < 400) {
               app.auth = true;
               // Redirect
+            } else if (this.readyState == 4 && this.status == 401) {
+              app.auth = false;
             }
           }
         }
