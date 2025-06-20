@@ -14,7 +14,7 @@
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <div class="gallery" v-if="dogImages.length">
       <span v-for="n in dogInfo.count">
-        <b> {{dogInfo[n-1].name}} </b>
+        <b> {{dogInfo[n-1]}} </b>
         <img :src="dogImages[n-1]" :alt="'Dog' + n">
       </span>
     </div>
@@ -38,7 +38,7 @@
           const info = await fetch('/api/users/dogs');
           const data = await info.json();
           this.dogInfo = data;
-          console.log(this.dogInfo)
+          console.log(this.dogInfo);
           this.fetchImages();
         },
         async fetchImages() {
