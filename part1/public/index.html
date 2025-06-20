@@ -31,8 +31,10 @@
             },
             methods: {
                 async fetchDIOD() {
+                    console.log("Fetching");
                     const response = await fetch ('https://dog.ceo/api/breeds/image/random');
                     this.diod = await response.json();
+                    console.log("Fetched");
                 }
             }
         }).mount('#dog')
