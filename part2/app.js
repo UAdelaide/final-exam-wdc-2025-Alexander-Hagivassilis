@@ -2,9 +2,12 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 
+// Cookies and sessions
 var session = require('express-session');
 
 const app = express();
+
+
 
 // Middleware
 app.use(express.json());
