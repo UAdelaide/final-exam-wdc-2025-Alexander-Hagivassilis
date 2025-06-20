@@ -65,7 +65,8 @@ router.get('/dogs', async (req, res) => {
             let current_dog = {
                 dog_name: response[i].name,
                 size: response[i].size,
-                owner_username: response[i].username
+                owner_id: response[i].owner_id
+                dog_id
             };
             payload[i] = (current_dog);
         }
