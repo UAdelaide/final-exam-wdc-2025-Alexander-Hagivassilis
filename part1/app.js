@@ -84,7 +84,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
         open_requests.then((response) => {
             let payload = {};
             for (let i = 0; i < response.length; i++) {
-
+                let current_walk
             }
         });
     } catch (err) {
