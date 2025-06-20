@@ -77,7 +77,7 @@ CREATE TABLE WalkRatings (
     FOREIGN KEY (walker_id) REFERENCES Users(user_id),
     FOREIGN KEY (owner_id) REFERENCES Users(user_id),
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
-);');
+);`);
     await connection.end();
 
     db = await mysql.createConnection({
