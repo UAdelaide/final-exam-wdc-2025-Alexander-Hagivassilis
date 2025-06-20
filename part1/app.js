@@ -72,7 +72,7 @@ app.get('/api/dogs', async (req, res) => {
                     dog_name: response[i].name,
                     size: response[i].size
                 };
-                let dog_owner = await db.execute('SELECT ')
+                let dog_owner = await db.execute('SELECT username FROM u')
 
             }
         });
