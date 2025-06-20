@@ -1,4 +1,4 @@
-import { createApp, ref } from 'vue';
+import { createApp, ref } from '../../node_modules/vue';
 
 createApp({
   setup() {
