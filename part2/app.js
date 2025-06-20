@@ -10,7 +10,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-app.use(session ({
+app.use(session({
     secret: 'sup3rs3cr3tstr1ng',
     resave: false,
     saveUninitialized: false,
