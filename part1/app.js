@@ -23,14 +23,14 @@ let db;
     });
 
     // Create the database if it doesn't exist
-    await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
+    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
     await connection.end();
 
     db = await mysql.createConnection({
           host: 'localhost',
           user: 'root',
           password: '',
-          database: 'testdb'
+          database: 'DogWalkService'
     });
 
     // Insert data if table is empty
