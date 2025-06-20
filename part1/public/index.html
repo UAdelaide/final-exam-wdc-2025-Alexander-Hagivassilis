@@ -19,16 +19,8 @@
             data() {
                 return {
                     message: "Dog of today"
-                };
-            }
-        }).mount('#msg')
-
-        createApp({
-            data() {
-                return {
                     diod: null
                 };
-            },
             methods: {
                 async fetchDIOD() {
                     console.log("Fetching");
@@ -37,6 +29,16 @@
                     console.log("Fetched");
                 }
             }
+            }
+        }).mount('#msg')
+
+        createApp({
+            data() {
+                return {
+
+                };
+            },
+
         }).mount('#dog')
         </script>
 </body>
