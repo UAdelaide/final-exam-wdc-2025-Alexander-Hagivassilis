@@ -20,10 +20,11 @@
           <th scope="col">Name</th>
           <th scope="col">Size</th>
           <th scope="col">Owner ID</th>
+          <th scope="col">Photo</th>
         </tr>
       </thead>
       <tr v-for="n in dogInfo.count">
-        <b> {{dogInfo[n-1].dog_name}} </b>
+        <th> {{dogInfo[n-1].dog_name}} </th>
         <i> {{dogInfo</i>
         <img :src="dogImages[n-1]" :alt="'Dog' + n">
         </tr>
