@@ -138,8 +138,8 @@ app.get('/api/walkers/summary', async (req, res) => {
                         payload.push(new_walker);
                     }
                 }
-                
             }
+            res.json(payload);
         });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch walker summary' });
