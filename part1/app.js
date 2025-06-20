@@ -73,9 +73,9 @@ app.get('/api/dogs', async (req, res) => {
                     size: response[i].size,
                     owner_username: response[i].username
                 };
-                payload.
-
+                payload.push(current_dog);
             }
+            res.json(payload);
         });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
