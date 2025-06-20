@@ -42,8 +42,8 @@ router.post('/login', async (req, res) => {
   console.log(password);
   try {
     const [rows] = await db.execute(`
-      SELECT user_id, username, role FROM Users
-      WHERE email = ? AND password_hash = ?
+      SELECT user_id, email, role FROM Users
+      WHERE username = ? AND password_hash = ?
     `, [username, password]);
 
     if (rows.length === 0) {
