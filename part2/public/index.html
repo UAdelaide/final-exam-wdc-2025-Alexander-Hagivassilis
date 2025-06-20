@@ -78,11 +78,11 @@
           app.loginpass = '';
         },
         async attemptLogin(params) {
-                    console.log(document.getElementById("name").value);
-
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
             console.log(params);
+                      console.log(document.getElementById("name").value);
+
             if (this.readyState && this.status < 400) {
               app.auth = true;
               console.log(xhttp.status);
