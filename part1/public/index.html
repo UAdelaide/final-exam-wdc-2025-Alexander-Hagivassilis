@@ -10,7 +10,7 @@
             {{ message }}
         </div>
         <div id="dog">
-            {{ image }}
+            <img >
         </div>
         <script>
         const {createApp} = Vue;
@@ -35,7 +35,7 @@
                     this.diod = await response.json();
                 }
             }
-        })
+        }).mount('#dog')
         </script>
 </body>
 </html>
