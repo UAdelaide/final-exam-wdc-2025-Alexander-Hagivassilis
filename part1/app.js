@@ -23,27 +23,39 @@ let db;
     });
 
     // Create the database if it doesn't exist
-    await connection.query(`DROP DATABASE IF EXISTS DogWalkService;
-CREATE DATABASE DogWalkService;
-USE DogWalkService;
-CREATE TABLE Users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    role ENUM('owner', 'walker') NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
+    await connection.end();
 
-CREATE TABLE Dogs (
+    // Now connect to the created database
+    db = await mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'DogWalkService'
+    });
+
+    // Create a table if it doesn't exist
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS Users (
+        user_id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(50) UNIQUE NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL,
+        password_hash VARCHAR(255) NOT NULL,
+        role ENUM('owner', 'walker') NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS Dogs (
     dog_id INT AUTO_INCREMENT PRIMARY KEY,
     owner_id INT NOT NULL,
     name VARCHAR(50) NOT NULL,
     size ENUM('small', 'medium', 'large') NOT NULL,
     FOREIGN KEY (owner_id) REFERENCES Users(user_id)
-);
-
-CREATE TABLE WalkRequests (
+      )
+    `);
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS WalkRequests (
     request_id INT AUTO_INCREMENT PRIMARY KEY,
     dog_id INT NOT NULL,
     requested_time DATETIME NOT NULL,
@@ -52,9 +64,10 @@ CREATE TABLE WalkRequests (
     status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
-);
-
-CREATE TABLE WalkApplications (
+      )
+    `);
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS WalkApplications (
     application_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
     walker_id INT NOT NULL,
@@ -63,9 +76,10 @@ CREATE TABLE WalkApplications (
     FOREIGN KEY (request_id) REFERENCES WalkRequests(request_id),
     FOREIGN KEY (walker_id) REFERENCES Users(user_id),
     CONSTRAINT unique_application UNIQUE (request_id, walker_id)
-);
-
-CREATE TABLE WalkRatings (
+      )
+    `);
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
     walker_id INT NOT NULL,
@@ -77,17 +91,8 @@ CREATE TABLE WalkRatings (
     FOREIGN KEY (walker_id) REFERENCES Users(user_id),
     FOREIGN KEY (owner_id) REFERENCES Users(user_id),
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
-);`);
-    await connection.end();
-
-    db = await mysql.createConnection({
-          host: 'localhost',
-          user: 'root',
-          password: '',
-          database: 'DogWalkService'
-    });
-
-    await db.execute('SOURCE dogwalks.sql');
+      )
+    `);
 
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
@@ -152,6 +157,7 @@ app.get('/api/dogs', async (req, res) => {
         }
         res.json(payload);
     } catch (err) {
+      console.log(err);
         res.status(500).json({ error: 'Failed to fetch dogs' });
     }
 });
@@ -174,6 +180,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
         }
         res.json(payload);
     } catch (err) {
+      console.log(err);
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
     }
 });
@@ -218,6 +225,7 @@ app.get('/api/walkers/summary', async (req, res) => {
         }
         res.json(payload);
     } catch (err) {
+      console.log(err);
         res.status(500).json({ error: 'Failed to fetch walker summary' });
     }
 });
