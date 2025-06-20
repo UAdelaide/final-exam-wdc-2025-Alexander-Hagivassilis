@@ -12,8 +12,8 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
-    <div class="gallery" v-if="dogImages.length">
-      
+    <div class="gallery" v-if="dogInfo.length">
+
     </div>
 
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
@@ -25,7 +25,8 @@
     createApp({
       data() {
         return {
-          message: 'Welcome to the Dog Walking Service!'
+          message: 'Welcome to the Dog Walking Service!',
+          dogInfo: []
         };
       }
     }).mount('#app');
