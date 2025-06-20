@@ -12,6 +12,7 @@ const app = express();
 // Middleware
 app.use(logger('dev'));
 app.use(express.json());
+app.
 
 app.use(session({
     secret: 'sup3rs3cr3tstr1ng',
