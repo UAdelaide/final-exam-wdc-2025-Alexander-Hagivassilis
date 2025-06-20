@@ -104,9 +104,9 @@ app.get('/api/walkrequests/open', async (req, res) => {
 app.get('/api/walkers/summary', async (req, res) => {
     try {
         const walkers = await db.execute("SELECT Users.username, WalkRatings.rating FROM Users LEFT JOIN WalkRatings ON WalkRatings.walker_id=user_id WHERE role='walker'");
-        walkers.then((response) = {
+        walkers.then((response) => {
             let payload = {};
-            
+            for (let i = 0; i < response.length)
         });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch walker summary' });
