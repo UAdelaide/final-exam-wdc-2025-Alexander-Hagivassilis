@@ -10,7 +10,7 @@
             {{ message }}
         </div>
         <div v-if="diod" id="dog">
-            <img src="diod.message">
+            <img :src="diod.message">
         </div>
         <script>
         const {createApp} = Vue;
