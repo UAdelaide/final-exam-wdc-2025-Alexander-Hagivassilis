@@ -75,7 +75,7 @@
         },
         async loginForm() {
           attemptLogin({username:app.loginuser, password:app.loginpass});
-          
+          app.loginpass = '';
         },
         async attemptLogin(params) {
           var xhttp = new XMLHttpRequest();
