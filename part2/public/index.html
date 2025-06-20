@@ -80,7 +80,10 @@
           app.loginpass = '';
         },
         async attemptLogin(params) {
-          var login = await fetch("/api/users/login")
+          var login = await fetch("/api/users/login", {
+            method: "POST",
+            
+          })
           // var xhttp = new XMLHttpRequest();
           // xhttp.onreadystatechange = function () {
           //   console.log(params);
