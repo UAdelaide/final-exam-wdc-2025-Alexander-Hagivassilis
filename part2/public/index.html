@@ -78,9 +78,9 @@
           app.loginpass = '';
         },
         async attemptLogin(params) {
-          console.log("Params: " + params);
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
+            console.log(params);
             if (this.readyState && this.status < 400) {
               app.auth = true;
               console.log(xhttp.status);
