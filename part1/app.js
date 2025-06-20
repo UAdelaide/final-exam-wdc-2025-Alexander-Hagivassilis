@@ -132,7 +132,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                         let new_walker = {
                             walker_username: current_walker_name,
                             total_ratings: 1,
-                            average_rating: null,
+                            average_rating: response[i].rating,
                             completed_walks: 1
                         };
                         payload.push(new_walker);
