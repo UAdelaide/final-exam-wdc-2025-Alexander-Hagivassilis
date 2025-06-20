@@ -145,18 +145,16 @@ let db;
 app.get('/api/dogs', async (req, res) => {
     try {
         const dogs = await db.execute('SELECT Users.username, Dogs.name, Dogs.size, Dogs.owner_id FROM Dogs LEFT JOIN Users ON Dogs.owner_id=Users.user_id');
-        dogs.then((response) => {
-            let payload = {};
-            for (let i = 0; i < response.length; i++) {
-                let current_dog = {
-                    dog_name: response[i].name,
-                    size: response[i].size,
-                    owner_username: response[i].username
-                };
-                payload.push(current_dog);
-            }
-            res.json(payload);
-        });
+          let payload = {};
+          for (let i = 0; i < dogs.length; i++) {
+              let current_dog = {
+                  dog_name: dogs[i].name,
+                  size: dogs[i].size,
+                  owner_username: dogs[i].username
+              };
+              payload.push(current_dog);
+          }
+          res.json(payload);
     } catch (err) {
       console.log(err);
         res.status(500).json({ error: 'Failed to fetch dogs' });
