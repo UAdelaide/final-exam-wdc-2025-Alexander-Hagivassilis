@@ -187,43 +187,42 @@ app.get('/api/walkrequests/open', async (req, res) => {
 app.get('/api/walkers/summary', async (req, res) => {
     try {
         const walkers = await db.execute("SELECT Users.username, WalkRatings.rating FROM Users LEFT JOIN WalkRatings ON WalkRatings.walker_id=user_id WHERE role='walker'");
-        walkers.then((response) => {
-            let payload = {};
-            for (let i = 0; i < response.length; i++) {
-                let found = false;
-                let current_walker_name = response[i].username;
-                for (let j = 0; j < payload.length; j++) {
-                    if (payload[j].walker_username === current_walker_name && response[i].rating) {
-                        payload[j].average_rating = (payload[j].average_rating
-                            * payload[j].total_ratings + response[i].rating)
-                            / (payload[j].total_ratings + 1);
-                        payload[j].completed_walks++;
-                        payload[j].total_ratings++;
-                        found = true;
-                    }
-                }
-                if (!found) {
-                    if (!response[i].rating) {
-                        let new_walker = {
-                            walker_username: current_walker_name,
-                            total_ratings: 0,
-                            average_rating: null,
-                            completed_walks: 0
-                        };
-                        payload.push(new_walker);
-                    } else {
-                        let new_walker = {
-                            walker_username: current_walker_name,
-                            total_ratings: 1,
-                            average_rating: response[i].rating,
-                            completed_walks: 1
-                        };
-                        payload.push(new_walker);
-                    }
+        let response = walkers[0];
+        let payload = {};
+        for (let i = 0; i < response.length; i++) {
+            let found = false;
+            let current_walker_name = response[i].username;
+            for (let j = 0; j < payload.length; j++) {
+                if (payload[j].walker_username === current_walker_name && response[i].rating) {
+                    payload[j].average_rating = (payload[j].average_rating
+                        * payload[j].total_ratings + response[i].rating)
+                        / (payload[j].total_ratings + 1);
+                    payload[j].completed_walks++;
+                    payload[j].total_ratings++;
+                    found = true;
                 }
             }
-            res.json(payload);
-        });
+            if (!found) {
+                if (!response[i].rating) {
+                    let new_walker = {
+                        walker_username: current_walker_name,
+                        total_ratings: 0,
+                        average_rating: null,
+                        completed_walks: 0
+                    };
+                    payload.push(new_walker);
+                } else {
+                    let new_walker = {
+                        walker_username: current_walker_name,
+                        total_ratings: 1,
+                        average_rating: response[i].rating,
+                        completed_walks: 1
+                    };
+                    payload.push(new_walker);
+                }
+            }
+        }
+        res.json(payload);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch walker summary' });
     }
