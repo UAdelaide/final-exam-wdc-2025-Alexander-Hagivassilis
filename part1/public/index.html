@@ -4,12 +4,11 @@
         <title>Random dog!</title>
         <meta charset="UTF-8">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js">
-            var appdiv = new Vue({
-            el: "#app",
-            data: {
-                text: "This shows a random dog!"
-            }
-            });
+            const {createApp} = Vue;
+
+            createApp({
+                data()
+            })
         </script>
     </head>
     <body>
