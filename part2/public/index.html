@@ -12,8 +12,8 @@
   <div id="app" class="container py-5">
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
-    <div class="gallery" v-if="dogInfo.length">
-      <img v-for="(url, index) in dogInfo" :src="url" :alt="'Dog' + index" :key="url">
+    <div class="gallery" v-if="dogImages.length">
+      <img v-for="(url, index) in dogImages" :src="url" :alt="'Dog' + index" :key="url">
       <p></p>
     </div>
 
@@ -36,9 +36,14 @@
           const data = await info.json();
           const images = await fetch('https://dog.ceo/api/breeds/image/random' + data.count);
           const img_result = await images.json();
-          for (let i = 0; i < data.count; i++) {
-            data[i].image = img_result[i].message;
-          }
+          data[i].image = img_result[i].message;
+          this.fetchImages();
+        },
+        async fetchImages() {
+          const images = await fetch('https://dog.ceo/api/breeds/image/random/' + this.dogInfo.count);
+          const result = await images.json();
+          console.log(result);
+          this.dogImages = result.message;
         }
       },
       created: function() {
