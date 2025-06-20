@@ -14,7 +14,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use()
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(session({
     secret: 'sup3rs3cr3tstr1ng',
@@ -23,7 +23,6 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
