@@ -84,8 +84,8 @@ app.get('/api/dogs', async (req, res) => {
 
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
-
+        const 
     } catch (err) {
-        res.status(500)
+        res.status(500).json({ error: 'Failed to fetch open walk requests' });
     }
 });
