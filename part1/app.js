@@ -119,8 +119,11 @@ app.get('/api/walkers/summary', async (req, res) => {
                         found = true;
                     }
                 }
-                if (found === true) {
-                    
+                if (!found) {
+                    if (!response[i].rating)
+                    {
+                        
+                    }
                 }
 
             }
