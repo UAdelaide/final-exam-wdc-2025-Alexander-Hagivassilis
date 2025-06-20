@@ -64,7 +64,7 @@ let db;
 
 app.get('/api/dogs', async (req, res) => {
     try {
-        const dogs = await db.execute('SELECT name, size, owner_id FROM Dogs INNER JOIN ');
+        const dogs = await db.execute('SELECT name, size, owner_id FROM Dogs LEFT JOIN ');
         dogs.then((response) => {
             let payload = {};
             for (let i = 0; i < response.length(); i++) {
