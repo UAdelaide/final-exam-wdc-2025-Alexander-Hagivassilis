@@ -11,7 +11,8 @@ const app = express();
 app.use(express.json());
 
 app.use(session ({
-    secret: 
+    secret: 'sup3rs3cr3tstr1ng',
+    
 }))
 
 app.use(express.static(path.join(__dirname, '/public')));
