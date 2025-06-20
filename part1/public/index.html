@@ -3,23 +3,23 @@
     <head>
         <title>Random dog!</title>
         <meta charset="UTF-8">
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js">
-            const {createApp} = Vue;
-
-            createApp({
-                data() {
-                    return {
-                        message: "Good dog"
-                    };
-                }
-            }).mount('#app')
-        </script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
     <body>
         <div id="app">
             {{ message }}
         </div>
         <button type="button" onclick="appdiv.text = 'Hi';">?</button>
+        <script>
+        const {createApp} = Vue;
 
+        createApp({
+            data() {
+                return {
+                    message: "Good dog"
+                };
+            }
+        }).mount('#app')
+        </script>
 </body>
 </html>
