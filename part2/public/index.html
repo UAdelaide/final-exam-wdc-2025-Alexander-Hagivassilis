@@ -68,6 +68,9 @@
           const images = await fetch('https://dog.ceo/api/breeds/image/random/' + this.dogInfo.count);
           const result = await images.json();
           this.dogImages = result.message;
+        },
+        async attemptLogin() {
+
         }
       },
       created: function() {
