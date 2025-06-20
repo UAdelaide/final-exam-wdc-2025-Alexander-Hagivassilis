@@ -82,7 +82,8 @@
           xhttp.onreadystatechange = function () {
             if (this.readyState && this.status < 400) {
               app.auth = true;
-              console.log("Successful Login!");
+              console.log(this.status);
+              console.log(this.json);\
               // Redirect
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
