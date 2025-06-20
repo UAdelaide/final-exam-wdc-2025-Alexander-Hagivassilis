@@ -86,6 +86,7 @@
               console.log(this.json);
               // Redirect
             } else if (this.readyState == 4 && this.status == 401) {
+              console.log("Failed");
               app.auth = false;
             }
           }
