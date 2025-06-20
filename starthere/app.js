@@ -176,7 +176,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
                 location: response[i].location,
                 owner_username: response[i].username
             };
-            payload.push(current_walk);
+            payload[i] = current_walk;
         }
         res.json(payload);
     } catch (err) {
@@ -219,7 +219,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                         average_rating: response[i].rating,
                         completed_walks: 1
                     };
-                    payload.push(new_walker);
+                    payload[i] = new_walker;
                 }
             }
         }
