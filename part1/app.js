@@ -110,7 +110,7 @@ app.get('/api/walkers/summary', async (req, res) => {
                 let found = false;
                 let current_walker_name = response[i].username;
                 for (let j = 0; j < payload.length; j++) {
-                    if (payload[j].walker_username === current_walker_name ) {
+                    if (payload[j].walker_username === current_walker_name && response[i].rating) {
                         payload[j].average_rating = (payload[j].average_rating
                             * payload[j].total_ratings + response[i].rating)
                             / (payload[j].total_ratings + 1);
@@ -118,6 +118,9 @@ app.get('/api/walkers/summary', async (req, res) => {
                         payload[j].total_ratings++;
                         found = true;
                     }
+                }
+                if (found === true) {
+                    
                 }
 
             }
