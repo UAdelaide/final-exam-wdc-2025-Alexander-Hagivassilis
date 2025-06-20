@@ -43,6 +43,9 @@
           const result = await images.json();
           this.dogImages = result.message;
         }
+      },
+      created: function() {
+        this.fetchDogs
       }
     }).mount('#app');
   </script>
