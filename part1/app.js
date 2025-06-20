@@ -123,7 +123,9 @@ app.get('/api/walkers/summary', async (req, res) => {
                     if (!response[i].rating) {
                         let new_walker = {
                             walker_username: current_walker_name,
-                            
+                            total_ratings: 0,
+                            average_rating: null,
+                            completed_walks: 0
                         }
                     }
                 }
