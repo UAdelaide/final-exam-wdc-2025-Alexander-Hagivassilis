@@ -71,9 +71,9 @@ app.get('/api/dogs', async (req, res) => {
                 let current_dog = {
                     dog_name: response[i].name,
                     size: response[i].size,
-                    owner_username: response[i].
+                    owner_username: response[i].username
                 };
-
+                payload.
 
             }
         });
