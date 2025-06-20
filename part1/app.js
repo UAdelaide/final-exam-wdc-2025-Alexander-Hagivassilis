@@ -115,6 +115,8 @@ app.get('/api/walkers/summary', async (req, res) => {
                             / (payload[j].total_ratings + 1);
                         payload[j].completed_walks++;
                         payload[j].total_ratings++;
+                    } else {
+                        let new_walker = 
                     }
                 }
             }
