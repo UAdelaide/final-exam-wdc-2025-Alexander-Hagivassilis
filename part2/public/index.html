@@ -83,7 +83,7 @@
             if (this.readyState && this.status < 400) {
               app.auth = true;
               console.log()
-              console.log(this.status);
+              console.log(this.response);
               console.log(this.json);
               // Redirect
             } else if (this.readyState == 4 && this.status == 401) {
