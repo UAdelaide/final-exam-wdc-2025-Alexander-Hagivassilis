@@ -5,19 +5,18 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <div id="information">
+        <div id="app">
             {{ What is this page? }}
         </div>
         <button type="button" onclick="appdiv.text = 'Hi';">Change</button>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js">
     import { createApp, ref } from 'vue'
-    createApp({
-    setup() {
-        return {
-        count: ref(0)
-        }
+    var appdiv = new Vue({
+    el: "#app",
+    data: {
+        text: "Hello"
     }
-    }).mount('#app')
+    });
 </script>
 </body>
 </html>
