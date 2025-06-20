@@ -68,7 +68,10 @@ app.get('/api/dogs', async (req, res) => {
         dogs.then((response) => {
             let payload = {};
             for (let i = 0; i < response.length(); i++) {
-                
+                let current_dog = {
+                    dog_name: response[i]
+                };
+
             }
         });
     } catch (err) {
