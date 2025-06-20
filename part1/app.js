@@ -90,7 +90,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
                     requested_time: response[i].requested_time,
                     duration_minutes: response[i].duration_minutes,
                     location: response[i].location,
-                    
+                    owner_username: response[i].username
                 }
             }
         });
