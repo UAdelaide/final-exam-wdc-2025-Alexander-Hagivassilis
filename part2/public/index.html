@@ -89,9 +89,7 @@
               app.auth = true;
               // Redirect. Part of the received information should be the role.
               let json_response = JSON.parse(this.response);
-              console.log(json_response);
               let role = json_response.role;
-              console.log(role);
               if (role === "owner") {
                 window.location.href = "/routes/userRoutes/owner-dashboard.html";
               } else if (role === "walker") {
