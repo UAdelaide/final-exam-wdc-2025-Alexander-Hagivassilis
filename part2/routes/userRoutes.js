@@ -55,6 +55,7 @@ router.post('/login', async (req, res) => {
     let role_res = await db.execute(`SELECT role FROM Users WHERE username = ?`, [username]);
     req.session.role = role_res[0][0].role;
     console.log(req.session);
+    res.sendStatus(200);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: 'Login failed' });
