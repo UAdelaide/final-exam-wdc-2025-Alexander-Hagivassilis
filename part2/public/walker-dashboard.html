@@ -46,17 +46,12 @@
         const user =  getCurrentUser();
 
         async function getCurrentUser() {
-          try {
-            if (user_id) {
-              return (user_id)
-            };
-          } catch (error) {
-            const res = await fetch(`/api/users/me`, {
-              method: 'GET',
-            });
-            const result = await res.json();
-            const user_id = result.user_id;
-          }
+
+          const res = await fetch(`/api/users/me`, {
+            method: 'GET',
+          });
+          const result = await res.json();
+          return(result.user_id);
         }
 
         async function loadWalkRequests() {
