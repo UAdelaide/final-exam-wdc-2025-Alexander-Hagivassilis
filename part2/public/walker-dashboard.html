@@ -43,6 +43,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
+        let get_user = getCurrentUser()
         const user =  getCurrentUser();
 
         async function getCurrentUser() {
