@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
     }
     console.log("Logging in");
     console.log(rows);
-    req.session
+    req.session.user = username;
     console.log(req.session);
     res.sendStatus(200);
   } catch (error) {
