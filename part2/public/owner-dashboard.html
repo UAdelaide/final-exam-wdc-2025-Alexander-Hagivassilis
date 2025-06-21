@@ -100,6 +100,7 @@
             const res = await fetch('/api/users/userDogs');
             const data = await res.json();
             this.dogs_info = data;
+            console.log(this.dogs_info.count);
             console.log(this.dogs_info);
           } catch (err) {
             throw new Error(err || 'Error constructing dog choices');
