@@ -46,7 +46,9 @@
         const user = 3;
 
         async function getCurrentUser() {
-          const res = await fetch(`/api/users/me`)
+          const res = await fetch(`/api/users/me`, {
+            method: 'GET',
+          })
         }
 
         async function loadWalkRequests() {
