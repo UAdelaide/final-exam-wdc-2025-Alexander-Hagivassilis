@@ -46,12 +46,14 @@
         const user =  getCurrentUser();
 
         async function getCurrentUser() {
-          const res = await fetch(`/api/users/me`, {
+          return new Promise ((resolve) => {
+            const res = await fetch(`/api/users/me`, {
             method: 'GET',
           });
           const result = await res.json();
           console.log(result);
           this.resolve(result.user_id);
+          })
         }
 
         async function loadWalkRequests() {
