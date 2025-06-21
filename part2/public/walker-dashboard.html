@@ -51,8 +51,9 @@
               method: 'GET',
             });
             const result = await res.json();
+            const user_id = result.user_id;
           }
-
+          return (user_id);
         }
 
         async function loadWalkRequests() {
