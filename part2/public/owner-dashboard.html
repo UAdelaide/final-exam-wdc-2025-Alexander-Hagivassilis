@@ -97,7 +97,9 @@
             const res = await fetch('/api/user/userDogs');
             const data = await res.json();
             this.dogs_info = data;
-          } c
+          } catch (err) {
+            throw new Error()
+          }
         }
 
         async function submitWalkRequest() {
