@@ -51,7 +51,7 @@
           });
           const result = await res.json();
           console.log(result);
-          return result.user_id;
+          this.resolve(result.user_id);
         }
 
         async function loadWalkRequests() {
