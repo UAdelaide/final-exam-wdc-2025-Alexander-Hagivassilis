@@ -46,7 +46,11 @@
         const user =  getCurrentUser();
 
         async function getCurrentUser() {
-          if (!user_id) {
+          try {
+            if (!user_id) {
+          } catch (error) {
+
+          }
               const res = await fetch(`/api/users/me`, {
               method: 'GET',
             });
