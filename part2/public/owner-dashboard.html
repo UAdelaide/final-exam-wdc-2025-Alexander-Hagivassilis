@@ -16,7 +16,7 @@
       <div class="card-header bg-primary text-white">
         Create New Walk Request
       </div>
-      <div class="card-body">
+      <div class="card-body" v-if="dogs_info.length">
         <form @submit.prevent="submitWalkRequest">
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
