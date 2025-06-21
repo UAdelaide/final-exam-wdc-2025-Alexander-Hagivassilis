@@ -89,7 +89,11 @@
               app.auth = true;
               // Redirect. Part of the received information should be the role.
               let json_response = JSON.parse(this.response);
-              console.log(json_response.role);
+              let role = json_response.role;
+              if (role === "owner")
+            {
+              
+            }
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
             }
