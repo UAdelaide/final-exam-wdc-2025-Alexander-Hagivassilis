@@ -92,7 +92,11 @@
           }
         }
 
-        
+        async function loadDogs() {
+          try {
+            const res = await fetch('/api/user/userDogs')
+          }
+        }
 
         async function submitWalkRequest() {
           try {
