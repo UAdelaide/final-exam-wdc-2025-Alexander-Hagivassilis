@@ -98,6 +98,7 @@
             const res = await fetch('/api/users/userDogs');
             const data = await res.json();
             dogs_info = data;
+            console.log(dogs_info);
           } catch (err) {
             throw new Error(err || 'Error constructing dog choices');
           }
@@ -138,7 +139,7 @@
           form,
           walks,
           message,
-          dogs_info: [],
+          dogs_info,
           error,
           submitWalkRequest
         };
