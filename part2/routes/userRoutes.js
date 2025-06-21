@@ -51,9 +51,8 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
     console.log("Logging in");
-    req.session.user = username;
-    let role_res = await db.execute(`SELECT role FROM Users WHERE username = ?`, [username]);
-    req.session.role = role_res[0][0].role;
+    console.log(rows);
+    req.session
     console.log(req.session);
     res.sendStatus(200);
   } catch (error) {
