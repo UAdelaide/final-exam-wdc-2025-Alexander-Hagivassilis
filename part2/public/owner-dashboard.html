@@ -99,6 +99,7 @@
             const res = await fetch('/api/user/userDogs');
             const data = await res.json();
             this.dogs_info = data;
+            console.log(data);
           } catch (err) {
             throw new Error(err || 'Error constructing dog choices');
           }
