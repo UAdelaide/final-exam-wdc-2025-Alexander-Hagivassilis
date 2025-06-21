@@ -52,7 +52,8 @@ router.post('/login', async (req, res) => {
     }
     console.log("Logging in");
     req.session.user = req.body.username;
-    req.session.role = await db.execute(`SELECT role FROM Users WHERE username = ?`);
+    let role = await db.execute(`SELECT role FROM Users WHERE username = ?`);
+    console.log(role);
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
