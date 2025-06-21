@@ -74,6 +74,7 @@
           this.dogImages = result.message;
         },
         async loginForm() {
+          // Get the information to be able to login, and run the appropriate login information
           app.loginuser = document.getElementById("name").value;
           app.loginpass = document.getElementById("password").value;
           this.attemptLogin({username:app.loginuser, password:app.loginpass});
