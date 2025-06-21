@@ -87,7 +87,7 @@
             if (this.readyState == 4 && this.status == 200) {
               // If we login successfully
               app.auth = true;
-              // Redirect - get a new request, and then 
+              // Redirect. Part of the received information should be the role.
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
             }
