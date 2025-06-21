@@ -96,8 +96,8 @@
           try {
             const res = await fetch('/api/user/userDogs');
             const data = await res.json();
-            this.
-          }
+            this.dogs_info = data;
+          } c
         }
 
         async function submitWalkRequest() {
@@ -134,8 +134,7 @@
           form,
           walks,
           message,
-          dogs,
-          dog_ids,
+          dogs_info,
           error,
           submitWalkRequest
         };
