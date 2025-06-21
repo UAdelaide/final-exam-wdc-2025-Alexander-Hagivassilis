@@ -43,9 +43,10 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
+        var user;
         let get_user = getCurrentUser();
         get_user.then(function(result) {
-          const user = result;
+          user = result;
         });
 
         async function getCurrentUser() {
@@ -68,7 +69,6 @@
 
         async function applyToWalk(requestId) {
           try {
-            console.log(user);
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
