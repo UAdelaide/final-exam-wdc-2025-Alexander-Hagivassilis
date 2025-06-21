@@ -39,8 +39,6 @@ router.get('/me', (req, res) => {
 // POST login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  console.log(username);
-  console.log(password);
   try {
     const [rows] = await db.execute(`
       SELECT user_id, email, role FROM Users
@@ -55,7 +53,6 @@ router.post('/login', async (req, res) => {
     req.session.user = username;
     req.session.user_id = rows[0].user_id;
     req.session.role = rows[0].role;
-    console.log(req.session);
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
