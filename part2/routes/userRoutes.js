@@ -86,7 +86,14 @@ router.get('/dogs', async (req, res) => {
 router.get('/userDogs', async (req, res) => {
   try {
     const dogs = await db.execute('SELECT name FROM Dogs WHERE owner_id = ?', [req.session.user_id]);
-    
+    let response = dogs[0];
+    let payload = {};
+    for (let i = 0; i < response.length; i++) {
+      let current_dog = {
+        dog_name: response[i].name
+      };
+      payload[i] = (current_dog);
+    }
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch user dogs' })
   }
