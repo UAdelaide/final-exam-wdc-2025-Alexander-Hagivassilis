@@ -88,7 +88,7 @@
               // If we login successfully
               app.auth = true;
               // Redirect. Part of the received information should be the role.
-              console.log(this.response.role);
+              console.log(response.role);
               console.log(this.response);
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
