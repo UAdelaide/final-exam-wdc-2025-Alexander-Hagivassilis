@@ -96,7 +96,7 @@
 
         async function loadDogs() {
           try {
-            const res = await fetch('/api/user/userDogs');
+            const res = await fetch('/api/users/userDogs');
             const data = await res.json();
             this.dogs_info = data;
             console.log(this.dogs_info);
