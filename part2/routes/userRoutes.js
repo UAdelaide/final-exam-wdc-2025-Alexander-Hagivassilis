@@ -53,6 +53,8 @@ router.post('/login', async (req, res) => {
     console.log("Logging in");
     console.log(rows);
     req.session.user = username;
+    req.session.user_id = rows[0].user_id;
+    
     console.log(req.session);
     res.sendStatus(200);
   } catch (error) {
