@@ -85,12 +85,13 @@ router.get('/dogs', async (req, res) => {
 // Get user dogs
 router.get('/userDogs', async (req, res) => {
   try {
-    const dogs = await db.execute('SELECT name FROM Dogs WHERE owner_id = ?', [req.session.user_id]);
+    const dogs = await db.execute('SELECT name, dog_id FROM Dogs WHERE owner_id = ?', [req.session.user_id]);
     let response = dogs[0];
     let payload = {};
     for (let i = 0; i < response.length; i++) {
       let current_dog = {
-        dog_name: response[i].name
+        dog_name: response[i].name,
+        dog_id: response[i].dog_id
       };
       payload[i] = (current_dog);
     }
