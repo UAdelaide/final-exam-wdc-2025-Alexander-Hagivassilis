@@ -87,12 +87,12 @@
             if (this.readyState == 4 && this.status == 200) {
               // If we login successfully
               app.auth = true;
-              // Redirect
+              // Redirect - get a new request, and then 
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
             }
           }
-          // Send xhttp request`
+          // Send xhttp request
           xhttp.open("POST", "/api/users/login", false);
 
           xhttp.setRequestHeader("Content-Type", "application/json");
