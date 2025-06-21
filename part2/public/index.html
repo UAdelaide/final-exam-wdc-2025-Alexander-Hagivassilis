@@ -79,7 +79,6 @@
           app.loginpass = document.getElementById("password").value;
           this.attemptLogin({username:app.loginuser, password:app.loginpass});
           app.loginpass = '';
-          return false;
         },
         async attemptLogin(params) {
           // Create the xhttp request
@@ -93,10 +92,8 @@
               let role = json_response.role;
               if (role === "owner") {
                 window.location.href = "/owner-dashboard.html";
-                return false;
               } else if (role === "walker") {
                 window.location.href = "/walker-dashboard.html";
-                return false;
               }
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
