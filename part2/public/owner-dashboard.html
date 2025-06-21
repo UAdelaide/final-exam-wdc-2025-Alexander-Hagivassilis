@@ -18,7 +18,7 @@
       </div>
       <div class="card-body">
         <form @submit.prevent="submitWalkRequest">
-          <div class="mb-3">
+          <div class="mb-3" v-if="">
             <label class="form-label">Dog ID</label>
             <select v-model="form.selected" class="form-control" required>
                 <option disabled value="">-- Choose a dog --</option>
