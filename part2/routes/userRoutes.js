@@ -46,13 +46,12 @@ router.post('/login', async (req, res) => {
       SELECT user_id, email, role FROM Users
       WHERE username = ? AND password_hash = ?
     `, [username, password]);
-
+      // If the user isn't found
     if (rows.length === 0) {
       console.log("invalid credentials");
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-    console.log("Logging in");
-    console.log(rows);
+    // Otherwise, store all the information about the user as part of the session
     req.session.user = username;
     req.session.user_id = rows[0].user_id;
     req.session.role = rows[0].role;
