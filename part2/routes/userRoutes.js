@@ -94,6 +94,8 @@ router.get('/userDogs', async (req, res) => {
       };
       payload[i] = (current_dog);
     }
+    payload.count = response.length;
+    res.json(payload);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch user dogs' })
   }
