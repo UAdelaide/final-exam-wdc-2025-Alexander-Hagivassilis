@@ -82,4 +82,7 @@ router.get('/dogs', async (req, res) => {
     }
 });
 
+// Get user dogs
+router.get('/')
+
 module.exports = router;
