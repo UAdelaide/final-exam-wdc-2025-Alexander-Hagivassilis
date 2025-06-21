@@ -22,7 +22,7 @@
             <label class="form-label">Dog ID</label>
             <select v-model="form.selected" class="form-control" required>
                 <option disabled value="">-- Choose a dog --</option>
-
+                <
             </select>
           </div>
           <div class="mb-3">
@@ -98,7 +98,7 @@
             const data = await res.json();
             this.dogs_info = data;
           } catch (err) {
-            throw new Error()
+            throw new Error(err || 'Error constructing dog choices');
           }
         }
 
