@@ -21,9 +21,7 @@
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
             <select v-model="form.selected" class="form-control" required>
-                <option disabled value="">-- Choose a dog --</option>
-                <option>dog1</option>
-                <option v-if="dogs_info.count" value="dogs_info[0].dog_id">{{dogs_info[0].dog_name}}</option>
+                <option selected="selected" disabled value="">-- Choose a dog --</option>
                 <option v-for="n in dogs_info.count" :value="dogs_info[n-1].dog_id">{{ dogs_info[n-1].dog_name }}</option>
             </select>
           </div>
@@ -99,8 +97,7 @@
           try {
             const res = await fetch('/api/users/userDogs');
             const data = await res.json();
-            dogs_info = data;
-            console.log(dogs_info);
+            dogs_info.value = data;
           } catch (err) {
             throw new Error(err || 'Error constructing dog choices');
           }
