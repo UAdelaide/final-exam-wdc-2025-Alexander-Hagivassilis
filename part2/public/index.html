@@ -81,16 +81,15 @@
           app.loginpass = '';
         },
         async attemptLogin(params) {
+          // Create the xhttp request
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function () {
-            console.log(this);
             if (this.readyState == 4 && this.status == 200) {
+              // If we login successfully
               app.auth = true;
-              console.log("Loggedin");
               // Redirect
             } else if (this.readyState == 4 && this.status == 401) {
               app.auth = false;
-              console.log("notloggedin");
             }
           }
           // Login
