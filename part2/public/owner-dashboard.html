@@ -72,11 +72,6 @@
     const { createApp, ref, onMounted } = Vue;
 
     createApp({
-      data () {
-        return {
-          dogs_info: []
-        }
-      },
       setup() {
         const form = ref({
           dog_id: '',
@@ -102,7 +97,7 @@
           try {
             const res = await fetch('/api/users/userDogs');
             const data = await res.json();
-            this.dogs_info = data;
+            dogs_info = data;
           } catch (err) {
             throw new Error(err || 'Error constructing dog choices');
           }
@@ -143,6 +138,7 @@
           form,
           walks,
           message,
+          dogs_info: [],
           error,
           submitWalkRequest
         };
